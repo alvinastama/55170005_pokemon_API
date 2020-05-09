@@ -1,0 +1,42 @@
+<ActionBar [title]="'Details of ' + name"></ActionBar>
+
+<ScrollView orientation="vertical">
+    <GridLayout rows="auto, auto, auto, auto, auto, auto, auto, auto, auto" columns="*, *" *ngIf="pokemon">
+        <Label text="Normal Form" class="h2" row="0" col="0" colSpan="2"></Label>
+        <Image [src]="pokemon.sprites.front_default" row="1" col="0"></Image>
+        <Image [src]="pokemon.sprites.back_default" row="1" col="1"></Image>
+        <Label text="Shiny Form" class="h2" row="2" col="0" colSpan="2"></Label>
+        <Image [src]="pokemon.sprites.front_shiny" row="3" col="0"></Image>
+        <Image [src]="pokemon.sprites.back_shiny" row="3" col="1"></Image>
+        <Label text="Profile" class="h2" row="4" col="1" colSpan="2"></Label>
+        <GridLayout rows="auto, auto, auto, auto, auto, auto" columns="*, *" row="5" col="0" colSpan="2" backgroundColor="red" >
+            <Label class="font-weight-bold" text="Pokemon Name" row="0" col="0"></Label>
+            <Label [text]="pokemon.name" row="0" col="1"></Label>
+            <Label class="font-weight-bold" text="Pokemon Type(s) " row="1" col="0"></Label>
+            <Label [text]="pokemon.types[0].type.name + (pokemon.types[1] ? ' / ' + pokemon.types[1].type.name : '')" row="1" col="1"></Label>
+            <Label class="font-weight-bold" text="Ability " row="2" col="0"></Label>
+            <Label [text]="pokemon.abilities[0].ability.name + (pokemon.abilities[1] ? ', ' + pokemon.abilities[1].ability.name : '')" row="2" col="1"></Label>
+            <Label class="font-weight-bold" text="Moves " row="3" col="0"></Label>
+            <Label [text]="pokemon.moves[0].move.name + (pokemon.moves[1] ? ' / ' + pokemon.moves[1].move.name : '')" row="3" col="1"></Label>
+            <Label class="font-weight-bold" text="Species " row="4" col="0"></Label>
+            <Label [text]="pokemon.forms[0].name" row="4" col="1"></Label>
+            <Label class="font-weight-bold" text="Height(m) / Weight(kg)" row="5" col="0"></Label>
+            <Label [text]="(pokemon.height/10) + ' m / ' + (pokemon.weight/10) + ' kg'" row="5" col="1"></Label>
+        </GridLayout>
+        <Label class="h2" text="Stats" row="6" col="0" colSpan="2"></Label>
+        <GridLayout rows="auto, auto, auto, auto, auto, auto" columns="*, *" row="7" col="0" colSpan="2" backgroundColor="blue" >     
+            <Label  [text]="pokemon.stats[0].stat.name" row="0" col="0" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[0].base_stat" row="0" col="1" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[1].stat.name" row="1" col="0" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[1].base_stat" row="1" col="1" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[2].stat.name" row="2" col="0" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[2].base_stat" row="2" col="1" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[3].stat.name" row="3" col="0" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[3].base_stat" row="3" col="1" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[4].stat.name" row="4" col="0" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[4].base_stat" row="4" col="1" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[5].stat.name" row="5" col="0" class="bullet"></Label>
+            <Label  [text]="pokemon.stats[5].base_stat" row="5" col="1" class="bullet"></Label>
+        </GridLayout>
+    </GridLayout>
+</ScrollView>
